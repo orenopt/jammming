@@ -3,12 +3,15 @@ import TrackList from "../TrackList/TrackList";
 import "./Playlist.css";
 
 export default class Playlist extends Component {
+  handleOnChange() {
+    console.log("Playlist input value handleOnChnage");
+  }
   render() {
     return (
-      <div class="Playlist">
-        <input value="New Playlist" />
-        <TrackList />
-        <a class="Playlist-save">SAVE TO SPOTIFY</a>
+      <div className="Playlist">
+        <input value="New Playlist" onChange={this.handleOnChange} />
+        <TrackList tracksList={this.props.tracksList} />
+        <a className="Playlist-save">SAVE TO SPOTIFY</a>
       </div>
     );
   }

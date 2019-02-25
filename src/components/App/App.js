@@ -1,25 +1,67 @@
 import React, { Component } from "react";
 import SearchBar from "../SearchBar/SearchBar";
-import TrackList from "../TrackList/TrackList";
+import SearchResults from "../SearchResults/SearchResults";
 import Playlist from "../Playlist/Playlist";
 
 import "./App.css";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      tracks: [
+        {
+          song: "Tiny Dancer",
+          artist: "Elton John",
+          album: "Madman Across The Water",
+          added: false
+        },
+        {
+          song: "Tiny Dancer",
+          artist: "Elton John",
+          album: "Madman Across The Water",
+          added: false
+        },
+        {
+          song: "Tiny Dancer",
+          artist: "Elton John",
+          album: "Madman Across The Water",
+          added: false
+        },
+        {
+          song: "Tiny Dancer",
+          artist: "Elton John",
+          album: "Madman Across The Water",
+          added: false
+        },
+        {
+          song: "Tiny Dancer",
+          artist: "Elton John",
+          album: "Madman Across The Water",
+          added: false
+        }
+      ]
+    };
+
+    this.handleOnClick = this.handleOnClick.bind(this);
+  }
+  handleOnClick(e) {
+    console.log(e.target);
+  }
   render() {
     return (
       <div>
         <h1>
-          Ja<span class="highlight">mmm</span>ing
+          Ja<span className="highlight">mmm</span>ing
         </h1>
-        <div class="App">
+        <div className="App">
           <SearchBar />
-          <div class="App-playlist">
-            <div class="SearchResults">
-              <h2>Results</h2>
-              <TrackList />
-            </div>
-            <Playlist />
+          <div className="App-playlist">
+            <SearchResults
+              tracksList={this.state.tracks}
+              onClick={this.handleOnClick}
+            />
+            <Playlist tracksList={[]} />
           </div>
         </div>
       </div>
