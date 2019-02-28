@@ -12,14 +12,14 @@ export default class SearchBar extends Component {
     this.handleTermChange = this.handleTermChange.bind(this);
   }
 
-  search() {
+  search(e) {
     this.props.onSearch(this.state.term);
-    // e.preventDefault();
+    //e.preventDefault();
   }
 
   handleTermChange(e) {
     this.setState({ term: e.target.value });
-    e.preventDefault();
+    //e.preventDefault();
   }
 
   render() {

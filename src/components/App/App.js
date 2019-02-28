@@ -52,8 +52,8 @@ class App extends Component {
 
   search(term) {
     Spotify.search(term).then(tracks => {
-      // this.setState({ SearchResults: tracks });
-      console.log(tracks);
+      this.setState({ SearchResults: tracks });
+      // tracks.forEach(track => console.log(track));
     });
   }
   render() {
