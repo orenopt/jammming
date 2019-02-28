@@ -3,24 +3,12 @@ import Track from "../Track/Track";
 import "./TrackList.css";
 
 export default class TrackList extends Component {
-  // constructor(props) {
-  //   super(props);
-  // }
-  handleAddRemove() {}
   render() {
     return (
       <div className="TrackList">
-        {this.props.tracksList.map((track, i) => {
+        {this.props.tracksList.map(track => {
           return (
-            // <Track
-            //   key={i}
-            //   song={track.song}
-            //   artist={track.artist}
-            //   album={track.album}
-            //   added={track.added}
-            //   onClick={this.props.onClick(track)}
-            // />
-            <Track track={track} key={i} />
+            <Track track={track} key={track.id} onClick={this.props.onClick} />
           );
         })}
       </div>

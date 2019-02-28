@@ -2,11 +2,6 @@ import React, { Component } from "react";
 import "./Track.css";
 
 export default class Track extends Component {
-  handleClick(e) {
-    const track = e.target;
-    console.log(track);
-    // this.props.onClick(track);
-  }
   render() {
     const { track } = this.props;
     return (
@@ -17,8 +12,8 @@ export default class Track extends Component {
             {track.artist} | {track.album}
           </p>
         </div>
-        <a onClick={this.handleClick} className="Track-action" value={track}>
-          {track.added ? "-" : "+"}
+        <a onClick={() => this.props.onClick(track)} className="Track-action">
+          {track.isRemoval ? "-" : "+"}
         </a>
       </div>
     );
